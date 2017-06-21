@@ -1,0 +1,18 @@
+{% if service %}
+	<b> Welcome to {service}'s details and layers</b>
+    <ul>
+
+        <li>Name: {{service.service_name}}</li>
+        <li>Title: {{service.service_title}}
+        <li>URL: {{service.service_URL}}
+    </ul>
+    <b> These are the layers available for the above request </b>
+    <ul>
+    {%for layer in service.layer_set.all%}
+    <li><a href="/catalog/{{service.id }}/{{layer.id}}">{{layer.layer_title }}</a></li>
+    {%endfor%}
+    </ul>
+
+{% else %}
+    <p>No service are available.</p>
+{% endif %}

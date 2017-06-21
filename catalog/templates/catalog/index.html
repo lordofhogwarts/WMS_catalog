@@ -1,0 +1,10 @@
+{% if service_list %}
+	<b> Welcome to List of Services </b>
+    <ul>
+    {% for service in service_list %}
+        <li><a href="/catalog/{{ service.id }}/">{{service.service_title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No service are available.</p>
+{% endif %}

@@ -1,0 +1,11 @@
+{% if layer %}
+	<b> Welcome to details of layer</b>
+    <ul>
+
+        <li>Name: {{layer.layer_name}}</li>
+        <li>Title: {{layer.layer_title}}</li>
+        <li>Abstract: {{layer.layer_abstract}}</li>
+    </ul>
+{% else %}
+    <p>No layer are available.</p>
+{% endif %}
