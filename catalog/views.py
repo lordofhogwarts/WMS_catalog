@@ -11,11 +11,8 @@ def index(request):
 	}
 	return render(request,'catalog/index.html',context)
 
-def s_detail(request,service_id):
-	try:
-		service = get_object_or_404(Service, pk=service_id)
-	except Service.DoesNotExist:
-		raise Http404 ("Service Not Found")
+def s_detail(request,service_id):\
+	service = get_object_or_404(Service, pk=service_id)
 	return render(request,'catalog/detail.html',{'service':service})
 
 def layer(request,service_id,layer_id):
