@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.signals import post_save
-
+from django.dispatch import receiver
 # Create your models here.
 class Service(models.Model):
 	service_name = models.CharField(max_length=200)
@@ -16,3 +16,4 @@ class Layer(models.Model):
 	layer_abstract = models.CharField(max_length=200,null=True)
 	def __str__(self):
 		return self.layer_title
+

@@ -20,4 +20,3 @@ def layer(request,service_id,layer_id):
 	layer = Layer.objects.get(pk=layer_id)
 	context= {'layer':layer}
 	return render(request,'catalog/layer.html',context)
-	
