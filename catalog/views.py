@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404
 from catalog.models import Service, Layer		
 from django.template import loader
 # Create your views here.
@@ -12,11 +12,13 @@ def index(request):
 	return render(request,'catalog/index.html',context)
 
 def s_detail(request,service_id):
-	service = Service.objects.get(pk=service_id)
-	context= {'service':service}
-	return render(request,'catalog/detail.html',context)
+	try:
+		service = get_object_or_404(Service, pk=service_id)
+	except Service.DoesNotExist:
+		raise Http404 ("Service Not Found")
+	return render(request,'catalog/detail.html',{'service':service})
 
 def layer(request,service_id,layer_id):
-	layer = Layer.objects.get(pk=layer_id)
+	layer = get_object_or_404(Layer,pk=layer_id)
 	context= {'layer':layer}
 	return render(request,'catalog/layer.html',context)
