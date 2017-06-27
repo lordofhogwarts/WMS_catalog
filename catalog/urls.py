@@ -1,3 +1,8 @@
+# Author: Chuong Thao
+# Date created: 6/15/2017
+# Date last modified: 6/26/2017
+# Python Version: 3.5 
+
 from django.conf.urls import url
 
 from . import views

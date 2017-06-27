@@ -1,3 +1,8 @@
+# Author: Chuong Thao
+# Date created: 6/15/2017
+# Date last modified: 6/26/2017
+# Python Version: 3.5
+
 from django.core.management.base import BaseCommand, CommandError
 from catalog.models import Service, Layer
 from owslib.wms import WebMapService
@@ -17,6 +22,4 @@ class Command(BaseCommand):
                 layer_count= len(list1)
                 service = Service(service_name=wms.identification.title, service_title=wms.identification.title, service_URL=wms.url)
                 service.save()
-                for i in range (layer_count):
-                	service.layer_set.create(layer_name=list1[i], layer_title=wms[list1[i]].title, layer_abstract=wms[list1[i]].abstract)
   #          except:

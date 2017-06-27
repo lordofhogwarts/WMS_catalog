@@ -1,3 +1,8 @@
+# Author: Chuong Thao
+# Date created: 6/15/2017
+# Date last modified: 6/26/2017
+# Python Version: 3.5
+
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
